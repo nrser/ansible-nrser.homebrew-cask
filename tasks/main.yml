@@ -1,2 +1,17 @@
 ---
 # tasks file for nrser.homebrew-cask
+- name: tap caskroom/cask
+  homebrew_tap:
+    name: caskroom/cask
+    state: present
+
+- name: install cask
+  homebrew:
+    name: brew-cask
+    state: present
+
+- name: upgrade cask
+  shell: "brew upgrade brew-cask && brew cleanup && brew cask cleanup"
+  # this returns an error if we're at the current version
+  ignore_errors: true
+  when: homebrew_cask_upgrade

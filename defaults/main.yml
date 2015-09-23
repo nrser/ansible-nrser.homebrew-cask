@@ -1,2 +1,5 @@
 ---
 # defaults file for nrser.homebrew-cask
+
+# do an upgrade?
+homebrew_cask_upgrade: false
